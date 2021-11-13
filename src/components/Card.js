@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Container = styled.div`
+const Container = styled(Link)`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,9 +37,9 @@ const Thumbnail = styled.div`
   margin-right: 16px;
 `;
 
-const Card = ({ title, benefit }) => {
+const Card = ({ title, benefit, id }) => {
   return (
-    <Container>
+    <Container to={`/${id}`}>
       <TextArea>
         <h3>{title}</h3>
         <h2>{benefit}</h2>

@@ -27,14 +27,17 @@ const GET_BENEFITS = gql`
 const Home = () => {
   const { loading, error, data } = useQuery(GET_BENEFITS);
 
-  if (loading) {
-    return "Loading...";
-  }
-  if (data && data.benefits) {
-    return data.benefits.map((m) => {
-      return <Card title={m.title} benefit={m.benefit} />;
-    });
-  }
+  return (
+    <div>
+      <header>군복무 가이드</header>
+      {loading && "Loading"}
+      {!loading &&
+        data.benefits &&
+        data.benefits.map((m) => (
+          <Card key={m.id} id={m.id} title={m.title} benefit={m.benefit} />
+        ))}
+    </div>
+  );
 };
 
 export default Home;
