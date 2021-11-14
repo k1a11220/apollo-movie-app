@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import { useQuery } from "@apollo/client";
 import Card from "../components/Card";
 
-const GET_BENEFITS = gql`
+const GET_BENEFIT = gql`
   {
     benefits {
       id
@@ -25,7 +25,7 @@ const GET_BENEFITS = gql`
 `;
 
 const Home = () => {
-  const { loading, error, data } = useQuery(GET_BENEFITS);
+  const { loading, error, data } = useQuery(GET_BENEFIT);
 
   return (
     <div>
